@@ -13,7 +13,6 @@
   - [Running](https://github.com/0xRoxas/Twitter-Solana-NFT-Sales-Bot)  
 - [Config (Customize)](https://github.com/0xRoxas/Twitter-Solana-NFT-Sales-Bot#Config)
 - [Free Use](https://github.com/0xRoxas/Twitter-Solana-NFT-Sales-Bot#Free-Use)
-- [Twitter Handle](https://github.com/0xRoxas/Twitter-Solana-NFT-Sales-Bot#Handle)
 
 ## Setup
 
@@ -130,7 +129,4 @@ would become
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This bot is 100% free to use. Use of this bot for your project is encouraged. **No credit is needed**. If you find this bot useful and insist on crediting the creator, you can add @0xRoxas in the bot's Twitter bio or have the bot follow @0xRoxas on Twitter.
 
-## Twitter Handle
-
-[@0xRoxas](https://twitter.com/0xRoxas)
 
