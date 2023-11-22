@@ -3,9 +3,8 @@ import time
 import json
 import tweepy
 import yfinance as yf
-import os.path
-from os import path
 from collections import deque
+from security import safe_requests
 
 ######################### GLOBAL DEFINITIONS #########################################
 
@@ -81,7 +80,7 @@ def convert_tweet(sale_data, meta):
 
 #Sends a tweet based on sale data and NFT metadata
 def send_tweet(api, client, sale_data, meta):
-    image = requests.get(meta['image'] if config['use_img_on_chain'] else "https://img-cdn.magiceden.dev/rs:fill:640:640:0:0/plain/" + meta['image']).content
+    image = safe_requests.get(meta['image'] if config['use_img_on_chain'] else "https://img-cdn.magiceden.dev/rs:fill:640:640:0:0/plain/" + meta['image']).content
     with open('./tmp.png', 'wb') as handler:
         handler.write(image)
     #compress here
