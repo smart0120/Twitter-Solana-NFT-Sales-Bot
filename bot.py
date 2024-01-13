@@ -47,7 +47,7 @@ def init_collections():
     ret = {}
     limit = config['activities_per_call']
     url = "http://api-mainnet.magiceden.dev/v2/collections/" + config['ME_symbol'] + "/activities?offset=0&limit=" + str(limit)
-    response = requests.request("GET", url, headers={}, data={}).json()
+    response = requests.request("GET", url, headers={}, data={}, timeout=60).json(timeout=60)
     for x in response:
         if x['type'] == 'buyNow':
             ret[x['signature']] = x
@@ -63,7 +63,7 @@ def get_current_price(symbol):
 #Fetches metadata from mint address using the ME api
 def get_meta_from_mint(mint):
     url = "http://api-mainnet.magiceden.dev/v2/tokens/" + mint
-    response = requests.request("GET", url, headers={}, data={})
+    response = requests.request("GET", url, headers={}, data={}, timeout=60)
     return response.json()
 
 #Converts tweet text to config text
@@ -81,7 +81,7 @@ def convert_tweet(sale_data, meta):
 
 #Sends a tweet based on sale data and NFT metadata
 def send_tweet(api, client, sale_data, meta):
-    image = requests.get(meta['image'] if config['use_img_on_chain'] else "https://img-cdn.magiceden.dev/rs:fill:640:640:0:0/plain/" + meta['image']).content
+    image = requests.get(meta['image'] if config['use_img_on_chain'] else "https://img-cdn.magiceden.dev/rs:fill:640:640:0:0/plain/" + meta['image'], timeout=60).content
     with open('./tmp.png', 'wb') as handler:
         handler.write(image)
     #compress here
